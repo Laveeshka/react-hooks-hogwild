@@ -4,6 +4,7 @@ import hogs from "../porkers_data";
 import CardsList from "./CardsList";
 import HogFilter from "./HogFilter";
 import HogSorter from "./HogSorter";
+import HogToggle from "./HogToggle";
 
 //Quel amour étrange pour les cochons
 
@@ -51,7 +52,8 @@ function App() {
 			<Nav />
 			<HogFilter isGreased={isGreased} setIsGreased={setIsGreased}/>
 			<HogSorter setSelectedSortValue={setSelectedSortValue}/>
-			<CardsList hogsArray={filteredHogsArray}/>
+			<HogToggle showHogs={showHogs} onButtonClick={setShowHogs}/>
+			<CardsList hogsArray={filteredHogsArray} showHogs={showHogs}/>
 		</div>
 	);
 }
