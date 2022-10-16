@@ -17,7 +17,7 @@ function Card({ name, image, specialty, weight, greased, highestMedalAchieved })
                 {weight}
             </div>
             <div className="description">
-                {greased}
+                {`${greased}`}
             </div>
             <div className="description">
                 {highestMedalAchieved}

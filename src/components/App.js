@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Nav from "./Nav";
 import hogs from "../porkers_data";
 import CardsList from "./CardsList";
+import HogFilter from "./HogFilter";
 
 //Quel amour étrange pour les cochons
 
@@ -23,10 +24,20 @@ function App() {
 	const [isGreased, setIsGreased] = useState(false);
 	const [selectedSortValue, setSelectedSortValue] = useState("Default");
 
+	const filteredHogsArray = hogsArray.filter(hog => {
+		if (isGreased){
+			return hog.greased === isGreased;
+		}
+		else {
+			return true;
+		}
+	})
+
 	return (
 		<div className="App">
 			<Nav />
-			<CardsList hogsArray={hogsArray}/>
+			<HogFilter isGreased={isGreased} setIsGreased={setIsGreased}/>
+			<CardsList hogsArray={filteredHogsArray}/>
 		</div>
 	);
 }
