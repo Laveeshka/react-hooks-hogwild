@@ -5,6 +5,7 @@ import CardsList from "./CardsList";
 import HogFilter from "./HogFilter";
 import HogSorter from "./HogSorter";
 import HogToggle from "./HogToggle";
+import NewHogForm from "./NewHogForm";
 
 //Quel amour étrange pour les cochons
 
@@ -47,12 +48,22 @@ function App() {
 			
 	}
 
+	function addHog(newHog){
+		const newHogs = [...hogsArray, newHog];
+		setHogsArray(newHogs);
+	}
+
 	return (
 		<div className="App">
 			<Nav />
 			<HogFilter isGreased={isGreased} setIsGreased={setIsGreased}/>
 			<HogSorter setSelectedSortValue={setSelectedSortValue}/>
 			<HogToggle showHogs={showHogs} onButtonClick={setShowHogs}/>
+			<br></br>
+			<br></br>
+			<NewHogForm onHogFormSubmit={addHog}/>
+			<br></br>
+			<br></br>
 			<CardsList hogsArray={filteredHogsArray} showHogs={showHogs}/>
 		</div>
 	);
